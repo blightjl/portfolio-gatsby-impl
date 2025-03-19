@@ -33,7 +33,7 @@ const IndexPage: React.FC<PageProps> = () => {
                 <div className={profilePicture}>
                 <StaticImage
                     alt="Josan's Profile Picture"
-                    src="../images/profile_picture.jpeg" />
+                    src="../images/profile_picture.webp" />
                   </div>
               </div>
             </div>

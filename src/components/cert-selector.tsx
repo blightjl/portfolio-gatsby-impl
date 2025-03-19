@@ -1,10 +1,10 @@
 import * as React from 'react';
-import styles from './cert-selector.module.css';
+import { certificates } from './cert-selector.module.css';
 
 const CertificateSelector: React.FC = () => {
     return (
         <div>
-            <nav className="certificates">
+            <nav className={certificates}>
                 <ul>
                     <li><a href="#cert1">Security+</a></li>
                     <li><a href="#cert2">Network+</a></li>

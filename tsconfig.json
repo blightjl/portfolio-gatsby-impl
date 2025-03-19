@@ -99,5 +99,5 @@
     "skipLibCheck": true,                                 /* Skip type checking all .d.ts files. */
     "plugins": [{ "name": "typescript-plugin-css-modules" }]
   },
-  "include": ["./src/**/*", "./gatsby-node.ts", "./gatsby-config.ts", "./plugins/**/*"]
+  "include": ["./src/**/*", "./gatsby-node.js", "./gatsby-config.ts", "./plugins/**/*", "gatsby-browser.js"]
 }
