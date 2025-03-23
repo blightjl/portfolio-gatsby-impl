@@ -8,6 +8,7 @@ import NavigationBar from "../components/navigation"
 import CertificateSelector from "../components/cert-selector"
 import CertificateCard from "../components/certificate"
 import { GlobalContext, CERTIFICATE } from "../context/GlobalContext"
+import CertificateDisplay from '../components/certificate-display'
 import { getEnumByValue } from "../utils/utils"
 
 // use ENUMs instead of string
@@ -74,11 +75,9 @@ const Certificates: React.FC = () => {
       <HeaderBar />
       <NavigationBar />
       {currentCertificateId}
-      <CertificateSelector />
-      <CertificateCard certificateInfo={currentCertificateInfo} />
-      {/* <StaticImage
-        alt="Chrysler Building"
-        src="../images/new-york-chrysler.jpg" /> */}
+      {/* <CertificateSelector />
+      <CertificateCard certificateInfo={currentCertificateInfo} /> */}
+      <CertificateDisplay certificateInfo={currentCertificateInfo}/>
     </div>
   )
 }

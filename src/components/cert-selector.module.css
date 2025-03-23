@@ -1,5 +1,4 @@
 /* Certificates */
-
 .certificates {
     width: 100%;
     z-index: 10;
@@ -43,11 +42,8 @@
     opacity: 50%;
     height: 100%;
     background-color: orange;
-    padding-left: 20px; 
-    /*     padding-left: 20px; 
- */
+    padding-left: 20px;
 }
-
 
 .certificates a:hover,
 .certificates a:focus,
@@ -57,37 +53,35 @@
     transition: text-shadow 0.7s ease, transform 0.7s ease;
 }
 
-/* 
-TODO:
-EFFECT SHOULD NOW BE <CERTIFICATE>
-where the brackets enter in from outer and fade out when not hovered!
+/* Position the '<' and '>' symbols */
+.certificates span {
+    position: relative;
+}
 
-*/
-
-/* testing */
-/* Position the '>' symbol before the text */
-span::before {
+.certificates span::before {
     content: '<';
-    position: relative;
-    left: 0;  /* Position it to the left of the text */
-    opacity: 0;  /* Initially hidden */
-  }
-/* span::before {
-    content: '>';
-    position: relative;
-    right: 0;
+    position: absolute;
+    left: -20px; /* Adjust position as needed */
     opacity: 0;
-} */
-  
-span:hover::before {
-    opacity: 1; /* Make the '>' visible on hover */
-  }
+    transition: opacity 0.3s ease;
+}
 
-  .certificates a span::before {
-    transition: opacity 0.3s ease, transform 0.3s ease;
-  }
-  
-  .certificates a span:hover::before {
-    opacity: 1; /* Make the '>' visible on hover */
-    transform: translateX(0); /* Optional: for additional movement if needed */
-  }
+.certificates span::after {
+    content: '>';
+    position: absolute;
+    right: -20px; /* Adjust position as needed */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Hover effect for <a> */
+.certificates a:hover span::before,
+.certificates a:hover span::after {
+    opacity: 1;
+}
+
+/* Active effect for <span> */
+.certificates span.active::before,
+.certificates span.active::after {
+    opacity: 1;
+}

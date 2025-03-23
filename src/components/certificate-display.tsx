@@ -1,11 +1,17 @@
 import * as React from 'react';
-import CertificateCard from './certificate';
 import CertificateSelector from './cert-selector';
+import CertificateCard from './certificate';
+import { CertificateInfo } from 'src/types/types';
 
-const CertificateDisplay: React.FC = () => {
+interface CertificateInfoProps {
+    certificateInfo: CertificateInfo;
+}
+
+const CertificateDisplay: React.FC<CertificateInfoProps> = ( { certificateInfo } ) => {
     return (
-        <div><CertificateSelector />
-            {/* <CertificateCard certificateInfo={ } /> */}
+        <div>
+            <CertificateSelector />
+            <CertificateCard certificateInfo={ certificateInfo } />
         </div>
     );
 };

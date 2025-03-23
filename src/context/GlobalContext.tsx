@@ -13,12 +13,12 @@ type GlobalContextType = {
 }
 
 export const GlobalContext = createContext<GlobalContextType>({
-    currentCertificateId: CERTIFICATE.NETWORK,
+    currentCertificateId: CERTIFICATE.SECURITY,
     setCertificateId: () => { },
 });
 
 export const GlobalProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-    const [currentCertificateId, setCertificateId] = useState<CERTIFICATE>(CERTIFICATE.NETWORK);
+    const [currentCertificateId, setCertificateId] = useState<CERTIFICATE>(CERTIFICATE.SECURITY);
     return (
         <GlobalContext.Provider value={{ currentCertificateId, setCertificateId }}>
             {children}
