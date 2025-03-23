@@ -64,7 +64,6 @@ const CertificateSelector: React.FC = () => {
 
     return (
         <div>
-            {currentCertificateId}
             <nav className={styles.certificates}>
                 <ul>
                     {certificates.map(cert => (

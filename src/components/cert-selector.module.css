@@ -41,8 +41,14 @@
     text-shadow: 0.8px 0.8px rgb(234, 225, 225);
     opacity: 50%;
     height: 100%;
-    background-color: orange;
     padding-left: 20px;
+    /* background-color: black; */
+}
+
+.certificates a:hover {
+    transition: opacity 500ms, transform 500ms;
+    text-shadow: 2px 2px rgb(255, 73, 255);
+    transform: scale(1.05);
 }
 
 .certificates a:hover,
@@ -61,27 +67,35 @@
 .certificates span::before {
     content: '<';
     position: absolute;
-    left: -20px; /* Adjust position as needed */
+    left: -20px;
+    top: 50%;
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity 300ms, transform 400ms;
+    transform: translateY(-50%) translateX(-100%);
 }
 
 .certificates span::after {
     content: '>';
     position: absolute;
-    right: -20px; /* Adjust position as needed */
+    right: -20px;
+    top: 50%;
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity 300ms, transform 400ms;
+    transform: translateY(-50%) translateX(100%);
 }
 
 /* Hover effect for <a> */
 .certificates a:hover span::before,
 .certificates a:hover span::after {
     opacity: 1;
+    transform: translateY(-50%) translateX(0);
+    transition: opacity 150ms, transform 300ms;
 }
 
 /* Active effect for <span> */
 .certificates span.active::before,
 .certificates span.active::after {
     opacity: 1;
+    transform: translateY(-50%) translateX(0);
+    transition: opacity 150ms, transform 300ms;
 }

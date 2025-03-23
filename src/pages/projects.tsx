@@ -35,7 +35,6 @@ const IndexPage: React.FC<ProjectProps> = ({ data }: ProjectProps) => {
     <main>
       <HeaderBar />
       <NavigationBar />
-      {currentCertificateId}
       {/* at first just list all projects out */}
       {/* then sort all by year */}
       {/* then list each by latest projects */}

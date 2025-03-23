@@ -74,9 +74,6 @@ const Certificates: React.FC = () => {
     <div>
       <HeaderBar />
       <NavigationBar />
-      {currentCertificateId}
-      {/* <CertificateSelector />
-      <CertificateCard certificateInfo={currentCertificateInfo} /> */}
       <CertificateDisplay certificateInfo={currentCertificateInfo}/>
     </div>
   )

@@ -18,7 +18,6 @@ const IndexPage: React.FC<PageProps> = () => {
     <main>
       <HeaderBar />
       <NavigationBar />
-      {currentCertificateId}
       <div className={styles.aboutMeContent}>
         <div className={styles.contentOne}>
           <div className={styles.leftDisplay}>
