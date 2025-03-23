@@ -4,33 +4,27 @@ import { StaticImage } from 'gatsby-plugin-image';
 import NavigationBar from "../components/navigation";
 import HeaderBar from "../components/header";
 import CertificateSelector from "../components/cert-selector";
-import {
-  aboutMeContent,
-  contentOne,
-  contentTwo,
-  contentThree,
-  leftDisplay,
-  leftContent,
-  rightDisplay,
-  rightContent,
-  profileImage,
-  profilePicture,
-  profilePictureShade
-} from './index.module.css'
+import { useContext } from "react";
+import { GlobalContext } from "../context/GlobalContext";
+import * as styles from './index.module.css'
 
 
+console.log("TESTING");
+console.log(styles);
 
 const IndexPage: React.FC<PageProps> = () => {
+  const { currentCertificateId } = useContext(GlobalContext);
   return (
     <main>
       <HeaderBar />
       <NavigationBar />
-      <div className={aboutMeContent}>
-        <div className={contentOne}>
-          <div className={leftDisplay}>
-            <div className={leftContent}>
-              <div className={profilePictureShade}>
-                <div className={profilePicture}>
+      {currentCertificateId}
+      <div className={styles.aboutMeContent}>
+        <div className={styles.contentOne}>
+          <div className={styles.leftDisplay}>
+            <div className={styles.leftContent}>
+              <div className={styles.profilePictureShade}>
+                <div className={styles.profilePicture}>
                 <StaticImage
                     alt="Josan's Profile Picture"
                     src="../images/profile_picture.webp" />
@@ -38,8 +32,8 @@ const IndexPage: React.FC<PageProps> = () => {
               </div>
             </div>
           </div>
-          <div className={rightDisplay}>
-            <div className={rightContent}>Here’s my go at a portfolio!<br />
+          <div className={styles.rightDisplay}>
+            <div className={styles.rightContent}>Here’s my go at a portfolio!<br />
               How is it? Whatever your<br />
               answer is I hope you<br />
               have learned a<br />
@@ -49,11 +43,11 @@ const IndexPage: React.FC<PageProps> = () => {
             </div>
           </div>
         </div>
-        <div className={contentTwo}>
+        <div className={styles.contentTwo}>
           Now here's some more!
         </div>
-        <div className={contentThree}>
-          <div className={rightContent}>I think technology and Computer Science is pretty cool as you may have
+        <div className={styles.contentThree}>
+          <div className={styles.rightContent}>I think technology and Computer Science is pretty cool as you may have
             guessed?.<br /><br />
 
 

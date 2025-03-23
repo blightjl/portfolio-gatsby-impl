@@ -1,3 +1,5 @@
+/* Certificates */
+
 .certificates {
     width: 100%;
     z-index: 10;
@@ -11,6 +13,7 @@
     display: flex;
     flex-direction: column;
     text-align: center;
+    width: 100%;
     align-items: center;
 }
 
@@ -26,6 +29,10 @@
 
 .certificates a {
     width: 100%;
+}
+
+/* Underline effects */
+.certificates a {
     color: black;
     text-decoration: none;
     position: relative;
@@ -35,13 +42,12 @@
     text-shadow: 0.8px 0.8px rgb(234, 225, 225);
     opacity: 50%;
     height: 100%;
+    background-color: orange;
+    padding-left: 20px; 
+    /*     padding-left: 20px; 
+ */
 }
 
-.certificates a:hover {
-    transition: opacity 500ms, transform 500ms;
-    text-shadow: 2px 2px rgb(255, 73, 255);
-    transform: scale(1.1);
-}
 
 .certificates a:hover,
 .certificates a:focus,
@@ -51,23 +57,37 @@
     transition: text-shadow 0.7s ease, transform 0.7s ease;
 }
 
-.certificates a::after {
-    content: '>';
-    position: absolute;
-    left: -1em;
-    top: 50%;
-    transform: translateY(-50%) translateX(-100%);
-    opacity: 0;
-    transition: opacity 300ms, transform 300ms;
-    color: black;
-    font-size: 1em;
-    padding-bottom: 3px;
-}
+/* 
+TODO:
+EFFECT SHOULD NOW BE <CERTIFICATE>
+where the brackets enter in from outer and fade out when not hovered!
 
-.certificates a:hover::after,
-.certificates a:focus::after,
-.certificates a.active::after {
-    transform: translateY(-50%) translateX(0);
-    opacity: 1;
-    transition: opacity 150ms, transform 150ms;
-}
+*/
+
+/* testing */
+/* Position the '>' symbol before the text */
+span::before {
+    content: '<';
+    position: relative;
+    left: 0;  /* Position it to the left of the text */
+    opacity: 0;  /* Initially hidden */
+  }
+/* span::before {
+    content: '>';
+    position: relative;
+    right: 0;
+    opacity: 0;
+} */
+  
+span:hover::before {
+    opacity: 1; /* Make the '>' visible on hover */
+  }
+
+  .certificates a span::before {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  
+  .certificates a span:hover::before {
+    opacity: 1; /* Make the '>' visible on hover */
+    transform: translateX(0); /* Optional: for additional movement if needed */
+  }

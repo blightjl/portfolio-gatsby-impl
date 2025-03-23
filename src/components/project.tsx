@@ -2,15 +2,7 @@
 
 import * as React from 'react';
 import classNames from 'classnames';
-import {
-    rectangle,
-    line,
-    projectTitle,
-    left,
-    right,
-    additionalContent,
-    projectDescription
-} from './project.module.css';
+import * as styles from './project.module.css';
 import { ProjectInfo } from '../types/types';
 
 interface ProjectInfoProps {
@@ -19,15 +11,15 @@ interface ProjectInfoProps {
 
 const HeaderBar: React.FC<ProjectInfoProps> = ( { projectInfo } ) => { // destructoring
     return (
-        <div className={rectangle}>
-            <div className={line}>
-                <span className={classNames(projectTitle, left)}>{projectInfo.title}</span>
-                <span className={classNames(projectTitle, right)}>{projectInfo.year}</span>
+        <div className={styles.rectangle}>
+            <div className={styles.line}>
+                <span className={classNames(styles.projectTitle, styles.left)}>{projectInfo.title}</span>
+                <span className={classNames(styles.projectTitle, styles.right)}>{projectInfo.year}</span>
             </div>
-            <div className={classNames(additionalContent, projectDescription)}>{projectInfo.description}</div>
+            <div className={classNames(styles.additionalContent, styles.projectDescription)}>{projectInfo.description}</div>
             <div className="line">
-                <div className={classNames(additionalContent, left)}>TECH STACK USED: {projectInfo.technologies.join(", ")}</div>
-                <a className={classNames(additionalContent, right)} href={projectInfo.link} target="_blank">GITHUB</a>
+                <div className={classNames(styles.additionalContent, styles.left)}>TECH STACK USED: {projectInfo.technologies.join(", ")}</div>
+                <a className={classNames(styles.additionalContent, styles.right)} href={projectInfo.link} target="_blank">GITHUB</a>
             </div>
         </div>
     );

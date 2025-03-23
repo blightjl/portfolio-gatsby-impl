@@ -4,19 +4,9 @@ import { StaticImage } from 'gatsby-plugin-image';
 import NavigationBar from "../components/navigation";
 import HeaderBar from "../components/header";
 import CertificateSelector from "../components/cert-selector";
-import {
-  aboutMeContent,
-  contentOne,
-  contentTwo,
-  contentThree,
-  leftDisplay,
-  leftContent,
-  rightDisplay,
-  rightContent,
-  profileImage,
-  profilePicture,
-  profilePictureShade
-} from './index.module.css'
+import * as styles from './index.module.css'
+import { useContext } from "react";
+import { GlobalContext } from "../context/GlobalContext";
 import Project from "../components/project";
 
 interface ProjectNode {
@@ -40,10 +30,12 @@ interface ProjectProps extends PageProps {
 }
 
 const IndexPage: React.FC<ProjectProps> = ({ data }: ProjectProps) => {
+  const { currentCertificateId } = useContext(GlobalContext);
   return (
     <main>
       <HeaderBar />
       <NavigationBar />
+      {currentCertificateId}
       {/* at first just list all projects out */}
       {/* then sort all by year */}
       {/* then list each by latest projects */}

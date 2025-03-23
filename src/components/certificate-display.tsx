@@ -5,7 +5,7 @@ import CertificateSelector from './cert-selector';
 const CertificateDisplay: React.FC = () => {
     return (
         <div><CertificateSelector />
-            <CertificateCard certificateInfo={ } />
+            {/* <CertificateCard certificateInfo={ } /> */}
         </div>
     );
 };
