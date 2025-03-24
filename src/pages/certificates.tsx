@@ -11,9 +11,27 @@ import { GlobalContext, CERTIFICATE } from "../context/GlobalContext"
 import CertificateDisplay from '../components/certificate-display'
 import { getEnumByValue } from "../utils/utils"
 
-// use ENUMs instead of string
+interface CertificateNode {
+  childMdx: {
+    frontmatter: {
+      issuer: string
+      date_acquired: string
+      expiration_date: string
+      link: string
+    }
+    body: string
+  }
+}
 
-const Certificates: React.FC = () => {
+interface CertificateProps extends PageProps {
+  data: {
+    allFile: {
+      nodes: CertificateNode[]
+    }
+  }
+}
+
+const Certificates: React.FC<CertificateProps> = ({ data }: CertificateProps) => {
   const { currentCertificateId, setCertificateId } = useContext(GlobalContext);
   const [currentCertificateInfo, setCertificateInfo] = useState<CertificateInfo>({
     issuer: "",
@@ -43,38 +61,20 @@ const Certificates: React.FC = () => {
     setCertificateInfo(newCertificateInfo);
   }, [currentCertificateId]);
 
-  const certificates: CertificateInfo[] = [
-    {
-      issuer: 'CompTIA Security+',
-      dateAcquired: '07/19/2024',
-      expirationDate: '07/19/2027',
-      credentialLink: 'https://www.credly.com/badges/45e11fe9-ffb9-4f0b-82a6-57b7b96af190/public_url',
-    },
-    {
-      issuer: 'CompTIA Network+',
-      dateAcquired: '06/20/24',
-      expirationDate: '07/19/2027',
-      credentialLink: 'https://www.credly.com/badges/0e00b37b-f289-46ba-99b8-1ca0ecce4839/public_url',
-    },
-    {
-      issuer: 'AWS Cloud Certified Practitioner',
-      dateAcquired: 'N/A',
-      expirationDate: 'N/A',
-      credentialLink: 'N/A',
-    },
-    {
-      issuer: 'Certified Cisco Network Associate',
-      dateAcquired: 'N/A',
-      expirationDate: 'N/A',
-      credentialLink: 'N/A',
-    }
-  ];
+  const certificates: CertificateInfo[] =
+    data.allFile.nodes.map((node) => ({
+      issuer: node.childMdx.frontmatter.issuer,
+      dateAcquired: node.childMdx.frontmatter.date_acquired,
+      expirationDate: node.childMdx.frontmatter.expiration_date,
+      credentialLink: node.childMdx.frontmatter.link,
+    }));
+
 
   return (
     <div>
       <HeaderBar />
       <NavigationBar />
-      <CertificateDisplay certificateInfo={currentCertificateInfo}/>
+      <CertificateDisplay certificateNames={certificates.map((certInfo) => (certInfo.issuer))} certificateInfo={currentCertificateInfo} />
     </div>
   )
 }
@@ -88,9 +88,9 @@ export const query = graphql`
       nodes {
         childMdx {
           frontmatter {
+            issuer
             date_acquired
             expiration_date
-            issuer
             link
           }
           body
