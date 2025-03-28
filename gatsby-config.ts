@@ -50,6 +50,15 @@ const config: GatsbyConfig = {
         path: `${__dirname}/certificates/`,
       },
     },
+    {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        trackingIds: [process.env.GA_TRACKING_ID],
+        pluginConfig: {
+          head: true
+        },
+      },
+    },
     "gatsby-plugin-mdx",
     "gatsby-plugin-postcss",
     "gatsby-plugin-sass"
