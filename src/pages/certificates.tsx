@@ -102,4 +102,4 @@ export const query = graphql`
 
 export default Certificates
 
-export const Head: HeadFC = () => <title>Certificates Page</title>
+export const Head: HeadFC = () => <title>Certificates</title>
